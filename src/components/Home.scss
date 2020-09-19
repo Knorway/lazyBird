@@ -6,3 +6,63 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.Tweet-container {
+	width: 500px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	.Tweet {
+		width: 100%;
+		height: 100%;
+		background-color: white;
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+		.Tweet-item {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+			width: 100%;
+			padding: 12px;
+			.username {
+				display: flex;
+				align-items: center;
+				margin-bottom: 8px;
+				h4 {
+					font-weight: 500;
+					font-size: 13px;
+					color: rgba(0, 0, 0, 0.9);
+					margin-left: 3px;
+				}
+			}
+			.img-div {
+				margin-bottom: 5px;
+			}
+			.tweet-body {
+				font-size: 15px;
+				font-weight: 500;
+			}
+		}
+	}
+	.Footer {
+		background-color: lightgray;
+		width: 100%;
+		display: flex;
+		a {
+			color: inherit;
+		}
+		.section {
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			font-size: 1.5rem;
+			padding: 8px;
+			cursor: pointer;
+			transition: 0.15s;
+			&:hover {
+				color: white;
+			}
+		}
+	}
+}

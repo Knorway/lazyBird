@@ -11,7 +11,7 @@ export default async function initializeAuth(dispatch) {
 				})
 			);
 		} else {
-			dispatch(authHandler.setInit(false));
+			dispatch(authHandler.setLogin(null));
 		}
 		dispatch(authHandler.setInit(true));
 	});

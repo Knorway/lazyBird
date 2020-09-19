@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Login.scss';
 import { fbAuth } from '../firebaseConfig';
 import firebase from '../firebaseConfig';
+import { CgClose } from 'react-icons/cg';
 
 function Login() {
 	const [toggled, setToggled] = useState(false);
@@ -75,6 +76,7 @@ function Login() {
 					</div>
 				</div>
 				<div className={`create-card ${toggled ? 'toggled' : ''}`}>
+					<CgClose className='close-mark' onClick={onToggleForm} />
 					<form className='create-form' onSubmit={onSignUp}>
 						<input
 							type='email'

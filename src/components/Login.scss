@@ -60,7 +60,8 @@
 		}
 	}
 	.create-card {
-		background-color: #d0ebff;
+		border-top: 1px solid rgba(0, 0, 0, 0.5);
+		background-color: white;
 		position: absolute;
 		bottom: 0;
 		width: 500px;
@@ -70,6 +71,18 @@
 		&.toggled {
 			display: flex;
 		}
+		.close-mark {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			font-size: 1.5rem;
+			margin-top: 1rem;
+			background-color: rgba(0, 0, 0, 0.9);
+			color: white;
+			border-radius: 4px;
+			cursor: pointer;
+			transform: translate(-50%, 0);
+		}
 		.create-form {
 			display: flex;
 			flex-direction: column;
@@ -77,7 +90,7 @@
 			width: 100%;
 			input {
 				border: none;
-				background-color: white;
+				background-color: #e9ecef;
 				margin-bottom: 5px;
 				padding: 0.5rem;
 				border-radius: 5px;

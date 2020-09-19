@@ -1,17 +1,21 @@
 import React from 'react';
-import './Footer.scss';
 import { FaUserAlt } from 'react-icons/fa';
 import { BsFillChatFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 function Footer() {
 	return (
 		<div className='Footer'>
-			<div className='section section-user'>
-				<FaUserAlt />
-			</div>
-			<div className='section'>
-				<BsFillChatFill />
-			</div>
+			<Link to='/profile' className='section section-user'>
+				<div>
+					<FaUserAlt />
+				</div>
+			</Link>
+			<Link to='/chat' className='section'>
+				<div>
+					<BsFillChatFill />
+				</div>
+			</Link>
 		</div>
 	);
 }
