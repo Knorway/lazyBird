@@ -7,9 +7,6 @@ import CreateTweet from './CreateTweet';
 
 function TweetItem({ post }) {
 	const { userObj: user } = useSelector((state) => state.auth);
-	console.log(post);
-
-	if (!post) return null;
 
 	return (
 		<div>
@@ -43,8 +40,6 @@ function Tweet() {
 		onToggle();
 	}, []);
 
-	console.log(posts);
-
 	return (
 		<>
 			<div className='Tweet-container'>
@@ -59,9 +54,9 @@ function Tweet() {
 					>
 						<GoPlus className={`${toggled ? 'toggled' : null}`} />
 					</div>
-					<CreateTweet toggled={toggled} onToggle={onToggle} />
 				</div>
 				<Footer />
+				<CreateTweet toggled={toggled} onToggle={onToggle} />
 			</div>
 		</>
 	);

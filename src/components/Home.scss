@@ -46,8 +46,8 @@
 			}
 		}
 		.create-mark {
-			position: absolute;
-			bottom: 0;
+			position: fixed;
+			bottom: 5%;
 			left: 50%;
 			transform: translate(-50%, 0);
 			font-size: 1.3rem;
@@ -70,7 +70,7 @@
 				color: white;
 			}
 			&:hover {
-				transform: translate(-50%, 0);
+				transform: translate(-50%, -10%);
 				border: 2px solid rgba(0, 0, 0, 0.9);
 				background-color: rgba(0, 0, 0, 0.9);
 				color: white;
