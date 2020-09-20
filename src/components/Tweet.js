@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RiMapPinUserFill } from 'react-icons/ri';
+import { GoPlus } from 'react-icons/go';
 import Footer from './Footer';
+import CreateTweet from './CreateTweet';
 
-function TweetItem() {
+function TweetItem({ post }) {
 	const { userObj: user } = useSelector((state) => state.auth);
+	console.log(post);
+
+	if (!post) return null;
+
 	return (
-		<>
+		<div>
 			<div className='Tweet-item'>
 				<div className='username'>
 					<RiMapPinUserFill />
@@ -19,19 +25,41 @@ function TweetItem() {
 					/>
 				</div>
 				<div className='tweet-body'>
-					<span>shouldn't build this like this</span>
+					<span>{post.text}</span>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 
 function Tweet() {
+	const posts = useSelector((state) => state.posts);
+	const [toggled, setToggled] = useState(true);
+	const onToggle = () => {
+		setToggled((state) => !state);
+	};
+
+	useEffect(() => {
+		onToggle();
+	}, []);
+
+	console.log(posts);
+
 	return (
 		<>
 			<div className='Tweet-container'>
 				<div className='Tweet'>
-					<TweetItem />
+					{posts &&
+						posts.map((post) => (
+							<TweetItem key={post.id} post={post} />
+						))}
+					<div
+						className={`create-mark ${toggled ? 'toggled' : null}`}
+						onClick={onToggle}
+					>
+						<GoPlus className={`${toggled ? 'toggled' : null}`} />
+					</div>
+					<CreateTweet toggled={toggled} onToggle={onToggle} />
 				</div>
 				<Footer />
 			</div>
