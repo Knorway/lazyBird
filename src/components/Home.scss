@@ -38,11 +38,34 @@
 				}
 			}
 			.img-div {
-				margin-bottom: 5px;
+				img {
+					width: 100%;
+				}
 			}
 			.tweet-body {
-				font-size: 15px;
-				font-weight: 500;
+				font-size: 12px;
+				font-weight: 600;
+				color: rgba(0, 0, 0, 0.9);
+				margin-top: 3px;
+				overflow-y: unset;
+			}
+			.utilcon {
+				cursor: pointer;
+				font-size: 1.1rem;
+				&:nth-child(1) {
+					&:hover {
+						fill: pink;
+					}
+				}
+				&:nth-child(2) {
+					&:hover {
+						fill: black;
+						color: gray;
+					}
+				}
+			}
+			.utilcon + .utilcon {
+				margin-left: 5px;
 			}
 		}
 		.create-mark {

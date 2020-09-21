@@ -11,15 +11,12 @@ import getPostsSnapShot from './util/getPostsSnapShot';
 
 function App() {
 	const { userObj, init } = useSelector((state) => state.auth);
-	const posts = useSelector((state) => state.posts);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		initializeAuth(dispatch);
 		getPostsSnapShot(dispatch);
 	}, [dispatch]);
-
-	console.log(posts);
 
 	if (!init) return null;
 	if (!userObj) return <Login />;
