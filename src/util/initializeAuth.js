@@ -8,6 +8,7 @@ export default async function initializeAuth(dispatch) {
 				authHandler.setLogin({
 					displayName: userObj.displayName,
 					uid: userObj.uid,
+					email: userObj.email,
 				})
 			);
 		} else {

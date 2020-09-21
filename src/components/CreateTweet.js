@@ -12,10 +12,13 @@ function CreateTweet({ toggled, onToggle, onGoUp, onFileUpload, imgUrl }) {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		if (text === '' || imgUrl === '') return;
-		const fileRef = fbStorage.ref().child(`${userObj.uid}/${uuidv4()}`);
-		const reponse = await fileRef.putString(imgUrl, 'data_url');
-		const fileUrl = await reponse.ref.getDownloadURL();
+		if (text === '' || !imgUrl) return;
+		let fileUrl = '';
+		if (imgUrl) {
+			const fileRef = fbStorage.ref().child(`${userObj.uid}/${uuidv4()}`);
+			const reponse = await fileRef.putString(imgUrl, 'data_url');
+			fileUrl = await reponse.ref.getDownloadURL();
+		}
 		const post = {
 			text,
 			uid: userObj.uid,

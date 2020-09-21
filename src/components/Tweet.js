@@ -46,7 +46,7 @@ function Tweet() {
 	const { userObj } = useSelector((state) => state.auth);
 	const posts = useSelector((state) => state.posts);
 	const [toggled, setToggled] = useState(true);
-	const [imgUrl, setImgUrl] = useState(null);
+	const [imgUrl, setImgUrl] = useState('');
 	const tweetNode = useRef();
 	const onToggle = () => {
 		setToggled((state) => !state);
