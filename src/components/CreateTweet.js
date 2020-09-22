@@ -19,10 +19,13 @@ function CreateTweet({ toggled, onToggle, onGoUp, onFileUpload, imgUrl }) {
 			const reponse = await fileRef.putString(imgUrl, 'data_url');
 			fileUrl = await reponse.ref.getDownloadURL();
 		}
+		const date = new Date();
+		const createdAt = `${date.getFullYear()}.${date.getMonth()}.${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
 		const post = {
 			text,
 			uid: userObj.uid,
 			timeStamp: Date.now(),
+			createdAt,
 			imgUrl: fileUrl,
 		};
 		await fbStore.collection('posts').add(post);
