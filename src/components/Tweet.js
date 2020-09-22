@@ -38,7 +38,7 @@ function TweetItem({ post, user }) {
 			<div className='Tweet-item'>
 				<div className='username'>
 					<RiMapPinUserFill />
-					<h4>{user.displayName}</h4>
+					<h4>{post.username}</h4>
 				</div>
 				<div className='img-div'>
 					{post.imgUrl && <img src={`${post.imgUrl}`} alt='pic' />}

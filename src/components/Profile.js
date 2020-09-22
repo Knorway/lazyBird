@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Profile.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -13,7 +13,7 @@ import initializeAuth from '../util/initializeAuth';
 function Profile() {
 	const { userObj: user } = useSelector((state) => state.auth);
 	const [toggled, setToggled] = useState(false);
-	const [edited, setEdited] = useState(user.displayName);
+	const [edited, setEdited] = useState(user.displayName || '');
 	const history = useHistory();
 	const dispatch = useDispatch();
 
@@ -34,6 +34,12 @@ function Profile() {
 	const onChange = (e) => {
 		setEdited(e.target.value);
 	};
+
+	useEffect(() => {
+		if (!user.displayName) {
+			setToggled((state) => !state);
+		}
+	}, [user.displayName]);
 
 	return (
 		<div className='Profile-wrapper'>
@@ -70,6 +76,7 @@ function Profile() {
 											onChange={onChange}
 											value={edited}
 											className='edit-input'
+											placeholder='Edit your name'
 											type='text'
 										/>
 										<div className='input-edit-icon'>
@@ -88,8 +95,8 @@ function Profile() {
 							<p>{user.email}</p>
 						</div>
 						<div className='util-container'>
-							<div className='btn-signout'>
-								<FaPowerOff onClick={onSignOut} />
+							<div className='btn-signout' onClick={onSignOut}>
+								<FaPowerOff />
 							</div>
 						</div>
 					</div>

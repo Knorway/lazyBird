@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import Chat from './components/Chat';
 import getPostsSnapShot from './util/getPostsSnapShot';
 import Tweet from './components/Tweet';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
 	const { userObj, init } = useSelector((state) => state.auth);
@@ -26,7 +27,8 @@ function App() {
 			<Switch>
 				<Route path='/' exact component={Tweet} />
 				<Route path='/profile' component={Profile} />
-				<Route path='/chat' component={Chat} />
+				<Route path='/public-chat' component={Chat} />
+				<Route component={ErrorPage} />
 			</Switch>
 		</BrowserRouter>
 	);

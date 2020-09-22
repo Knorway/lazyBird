@@ -27,6 +27,7 @@ function CreateTweet({ toggled, onToggle, onGoUp, onFileUpload, imgUrl }) {
 			timeStamp: Date.now(),
 			createdAt,
 			imgUrl: fileUrl,
+			username: userObj.displayName || userObj.email,
 		};
 		await fbStore.collection('posts').add(post);
 		setText('');
@@ -44,7 +45,12 @@ function CreateTweet({ toggled, onToggle, onGoUp, onFileUpload, imgUrl }) {
 			</div>
 			<div className='form-container'>
 				<form className='form' onSubmit={onSubmit}>
-					<input type='text' onChange={onChange} value={text} />
+					<input
+						type='text'
+						onChange={onChange}
+						value={text}
+						placeholder='A post must contain both text and image'
+					/>
 					<button>
 						<RiSendPlaneFill />
 					</button>

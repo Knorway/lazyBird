@@ -45,6 +45,7 @@
 						object-fit: contain;
 						@include media('<500px') {
 							object-fit: initial;
+							max-height: 400px;
 						}
 					}
 				}

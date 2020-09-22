@@ -12,7 +12,7 @@ function Footer({ children }) {
 						<FaUserAlt />
 					</div>
 				</Link>
-				<Link to='/chat' className='section'>
+				<Link to='/public-chat' className='section'>
 					<div>
 						<BsFillChatFill />
 					</div>
